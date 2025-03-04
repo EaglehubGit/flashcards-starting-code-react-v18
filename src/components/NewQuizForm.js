@@ -44,7 +44,7 @@ export default function NewQuizForm() {
     const quizId = uuidv4();
     dispatch(addQuiz({ id: quizId, name: quizName, topicId, cardIds }));
 
-    
+
     // After creating the quiz (and cards), navigate to the quizzes page
     navigate('/quizzes');    
 
@@ -86,6 +86,10 @@ export default function NewQuizForm() {
         <h3>Cards</h3>
         {cards.map((card, index) => (
           <div key={index}>
+
+          <button onClick={() => setCards([...cards, { front: '', back: '' }])}>Add Card</button>
+
+
             <label htmlFor={`cardFront${index}`}>Front:</label>
             <input
               id={`cardFront${index}`}
